@@ -430,7 +430,11 @@ extern "C" {
         GGML_TYPE_NVFP4   = 40, // NVFP4 (4 blocks, E4M3 scale)
         GGML_TYPE_Q1_0    = 41,
         GGML_TYPE_Q2_0    = 42,
-        GGML_TYPE_COUNT   = 43,
+        // Prism-private ternary at group size 128 (agentionai fork; Gyro port onto master: the
+        // fork's ROCmFPx types 100..107 are not ported, their ids stay unused). type_traits is
+        // sized to COUNT with 43..142 unused.
+        GGML_TYPE_PTQ1_0  = 143,
+        GGML_TYPE_COUNT   = 144,
     };
 
     // [TAG_GGML_PREC]
@@ -486,6 +490,7 @@ extern "C" {
         GGML_FTYPE_MOSTLY_NVFP4   = 26, // except 1d tensors
         GGML_FTYPE_MOSTLY_Q1_0    = 27, // except 1d tensors
         GGML_FTYPE_MOSTLY_Q2_0    = 28, // except 1d tensors
+        GGML_FTYPE_MOSTLY_PTQ1_0 = 129, // except 1d tensors (Prism-private group-128 ternary)
     };
 
     // available tensor operations:
