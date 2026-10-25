@@ -721,6 +721,10 @@ public:
     virtual ~llm_graph_input_kpool() = default;
 
     void set_input(const llama_ubatch * ubatch) override {
+        // an MTP draft graph has no QSA layer, so the k-pool inputs are built but never allocated
+        if (k_idxs->buffer == nullptr) {
+            return;
+        }
         mctx->get_idx()->set_input_k_idxs(k_idxs, ubatch);
         mctx->set_input_kpool(pool_cells, pool_idxs, pool_mask, tail_idxs, nullptr, new_pool_idxs, new_pool_rep,
                               ubatch, new_pool_pos);
