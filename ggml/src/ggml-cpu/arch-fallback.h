@@ -106,8 +106,6 @@
 #define ggml_vec_dot_ptq1_0_q8_0_generic ggml_vec_dot_ptq1_0_q8_0
 // TQ2_T / TQK6 / TQK7: arch/x86/quants.c (AVX-512 VBMI or AVX2; generic otherwise)
 // TQP5 / TQP6 / TQP7: arch/x86/quants.c (AVX2, also in AVX-512 builds; generic otherwise)
-// quants.c
-#define ggml_vec_dot_q2_0_q8_0_generic ggml_vec_dot_q2_0_q8_0
 // repack.cpp
 #define ggml_quantize_mat_q8_0_4x4_generic ggml_quantize_mat_q8_0_4x4
 #define ggml_quantize_mat_q8_K_4x4_generic ggml_quantize_mat_q8_K_4x4
